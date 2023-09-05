@@ -1,5 +1,4 @@
 import 'package:chat_app/view/auth/login_screen.dart';
-import 'package:chat_app/view/auth/register_screen.dart';
 import 'package:chat_app/view_model/chat_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
