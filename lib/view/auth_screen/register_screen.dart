@@ -1,16 +1,15 @@
 import 'package:chat_app/common/custom_button.dart';
-import 'package:chat_app/common/custom_textFormField.dart';
+import 'package:chat_app/common/custom_text_form_field.dart';
 import 'package:chat_app/common/snack_bar.dart';
 import 'package:chat_app/common/styles.dart';
 import 'package:chat_app/model/user_model.dart';
 import 'package:chat_app/view/auth_screen/login_screen.dart';
 import 'package:chat_app/view_model/chat_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
-  RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -159,7 +158,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => LoginScreen()));
+                                        builder: (_) => const LoginScreen()));
                               } else if (viewModel.message ==
                                   'The password provided is too weak.') {
                                 ScaffoldMessenger.of(context)
@@ -194,7 +193,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => LoginScreen()));
+                                      builder: (_) => const LoginScreen()));
                             },
                             child: const Text(
                               'Masuk',
