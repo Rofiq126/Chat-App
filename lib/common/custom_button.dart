@@ -2,9 +2,10 @@ import 'package:chat_app/common/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
-  VoidCallback onPressed;
-  String nameButton;
-  CustomButton({Key? key, required this.onPressed, required this.nameButton})
+  final VoidCallback onPressed;
+  final String nameButton;
+  const CustomButton(
+      {Key? key, required this.onPressed, required this.nameButton})
       : super(key: key);
 
   @override
