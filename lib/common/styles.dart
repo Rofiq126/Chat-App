@@ -7,15 +7,15 @@ class Styles {
   static const Color whiteColor = Color(0xFFE3EAFD);
 
   static const TextStyle title = TextStyle(
-      fontFamily: 'Poppins', fontSize: 14, color: Styles.secondryColor);
+      fontFamily: 'Poppins', fontSize: 12, color: Styles.secondryColor);
   static const TextStyle button = TextStyle(
       fontFamily: 'Poppins',
-      fontSize: 14,
+      fontSize: 12,
       color: whiteColor,
       fontWeight: FontWeight.w500);
   static const TextStyle titleMain = TextStyle(
       fontFamily: 'Poppins',
-      fontSize: 25,
+      fontSize: 20,
       fontWeight: FontWeight.w600,
       color: Styles.primaryColor);
   static const TextStyle reguler = TextStyle(
