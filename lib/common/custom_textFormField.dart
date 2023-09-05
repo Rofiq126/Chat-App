@@ -26,27 +26,31 @@ class CustomTextFormField extends StatefulWidget {
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: TextFormField(
-        controller: widget.controller,
-        style: Styles.reguler,
-        obscureText: widget.obsecure,
-        validator: widget.validator,
-        decoration: InputDecoration(
-          hintStyle: Styles.reguler,
-          contentPadding: EdgeInsets.zero,
-          hintText: widget.hintTExt,
-          prefixIcon: widget.prefixIcon,
-          filled: true,
-          fillColor: Styles.whiteColor,
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(width: 1, color: Styles.whiteColor)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(width: 1, color: Styles.whiteColor)),
-          suffixIcon: widget.suffix,
-        ),
+    return TextFormField(
+      controller: widget.controller,
+      style: Styles.reguler,
+      obscureText: widget.obsecure,
+      validator: widget.validator,
+      decoration: InputDecoration(
+        hintStyle: Styles.reguler,
+        contentPadding: EdgeInsets.zero,
+        hintText: widget.hintTExt,
+        prefixIcon: widget.prefixIcon,
+        filled: true,
+        fillColor: Styles.whiteColor,
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(width: 1, color: Styles.whiteColor)),
+        focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(width: 1, color: Colors.redAccent)),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(width: 1, color: Styles.whiteColor)),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(width: 1, color: Colors.redAccent)),
+        suffixIcon: widget.suffix,
       ),
     );
   }
