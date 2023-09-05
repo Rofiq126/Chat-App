@@ -20,8 +20,29 @@ class ChatViewModele extends ChangeNotifier {
         message = 'Email invalid';
       } else if (e.code == 'weak-password') {
         message = 'Weak Password';
+      } else {
+        debugPrint(e.code);
       }
-      notifyListeners();
     }
+    notifyListeners();
+  }
+
+  Future login({required UserModel userModel}) async {
+    try {
+      await firebase.signInWithEmailAndPassword(
+          email: userModel.email, password: userModel.password);
+      message = 'Login succesfull';
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        message = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        message = 'Wrong password provided for that user.';
+      } else if (e.code == 'invalid-email') {
+        message = 'Email not valid';
+      } else {
+        debugPrint(e.code);
+      }
+    }
+    notifyListeners();
   }
 }
