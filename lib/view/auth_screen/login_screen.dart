@@ -1,5 +1,5 @@
 import 'package:chat_app/common/custom_button.dart';
-import 'package:chat_app/common/custom_textFormField.dart';
+import 'package:chat_app/common/custom_text_form_field.dart';
 import 'package:chat_app/common/snack_bar.dart';
 import 'package:chat_app/common/styles.dart';
 import 'package:chat_app/model/user_model.dart';
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -119,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   () => Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => HomeScreen())));
+                                          builder: (_) => const HomeScreen())));
                             } else if (viewModel.message ==
                                 'No user found for that email.') {
                               ScaffoldMessenger.of(context)
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => RegisterScreen()));
+                                    builder: (_) => const RegisterScreen()));
                           },
                           child: const Text(
                             'Registrasi',
