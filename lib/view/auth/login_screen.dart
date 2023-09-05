@@ -87,7 +87,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 30,
                   ),
-                  CustomButton(onPressed: () {}, nameButton: 'Masuk'),
+                  CustomButton(
+                      onPressed: () {
+                        if (!formKey.currentState!.validate()) {}
+                      },
+                      nameButton: 'Masuk'),
                   const SizedBox(
                     height: 20,
                   ),
