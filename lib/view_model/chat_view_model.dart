@@ -45,4 +45,14 @@ class ChatViewModele extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  Future logout() async {
+    try {
+      await firebase.signOut();
+      message = 'Signout succesfull';
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.code);
+    }
+    notifyListeners();
+  }
 }
