@@ -1,4 +1,5 @@
 import 'package:chat_app/common/styles.dart';
+import 'package:chat_app/view/auth_screen/login_screen.dart';
 import 'package:chat_app/view_model/chat_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         leading: IconButton(
             onPressed: () async {
-              await viewModel.logout();
+              await viewModel.logout().then((value) => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const LoginScreen())));
             },
             icon: const Icon(
               Icons.logout,
