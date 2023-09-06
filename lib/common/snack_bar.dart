@@ -11,6 +11,8 @@ class SnackbarStyles {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: AwesomeSnackbarContent(
             title: 'Login Berhasil',
+            titleFontSize: 14,
+            messageFontSize: 12,
             message: 'Kamu akan langsung diarahkan ke halaaman utama',
             contentType: ContentType.success),
       ));
@@ -23,6 +25,8 @@ class SnackbarStyles {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: AwesomeSnackbarContent(
             title: 'Pengguna Tidak Ditemukan',
+            titleFontSize: 14,
+            messageFontSize: 12,
             message: 'Harap gunakan email yang sudah terdaftar',
             contentType: ContentType.warning),
       ));
@@ -35,6 +39,8 @@ class SnackbarStyles {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: AwesomeSnackbarContent(
             title: 'Password Salah',
+            titleFontSize: 14,
+            messageFontSize: 12,
             message: 'Harap gunakan kata sandi yang tepat',
             contentType: ContentType.warning),
       ));
@@ -47,6 +53,8 @@ class SnackbarStyles {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: AwesomeSnackbarContent(
             title: 'Email Tidak Valid',
+            titleFontSize: 14,
+            messageFontSize: 12,
             message: 'Harap gunakan email yang valid',
             contentType: ContentType.warning),
       ));
@@ -59,6 +67,8 @@ class SnackbarStyles {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: AwesomeSnackbarContent(
             title: 'Registrasi Berhasil',
+            titleFontSize: 14,
+            messageFontSize: 12,
             message: 'Silahkan login untuk dapat masuk ke aplikasi',
             contentType: ContentType.success),
       ));
@@ -71,6 +81,8 @@ class SnackbarStyles {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: AwesomeSnackbarContent(
             title: 'Password Lemah',
+            titleFontSize: 14,
+            messageFontSize: 12,
             message: 'Gunakan password yang lebih kuat',
             contentType: ContentType.warning),
       ));
@@ -83,6 +95,8 @@ class SnackbarStyles {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: AwesomeSnackbarContent(
             title: 'Email Telah Digunakan',
+            titleFontSize: 14,
+            messageFontSize: 12,
             message: 'Harap gunakan email yang belum terdaftar',
             contentType: ContentType.warning),
       ));
