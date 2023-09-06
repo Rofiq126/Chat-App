@@ -1,15 +1,17 @@
+import 'package:chat_app/firebase_service/constant_firebase_service.dart';
 import 'package:chat_app/model/user_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 
 class ChatViewModele extends ChangeNotifier {
-  var firebase = FirebaseAuth.instance;
+  var firebaseAuth = FirebaseAuth.instance;
+  var firebaseFirestore = FirebaseFirestore.instance;
   String message = '';
 
   Future createAccount({required UserModel userModel}) async {
     try {
-      await firebase.createUserWithEmailAndPassword(
-          email: userModel.email, password: userModel.password);
+      await ConstantFirebaseService.register(userModel: userModel);
       message = 'register success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -29,8 +31,7 @@ class ChatViewModele extends ChangeNotifier {
 
   Future login({required UserModel userModel}) async {
     try {
-      await firebase.signInWithEmailAndPassword(
-          email: userModel.email, password: userModel.password);
+      await ConstantFirebaseService.login(userModel: userModel);
       message = 'Login succesfull';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -48,7 +49,7 @@ class ChatViewModele extends ChangeNotifier {
 
   Future logout() async {
     try {
-      await firebase.signOut();
+      await ConstantFirebaseService.logout();
       message = 'Signout succesfull';
     } on FirebaseAuthException catch (e) {
       debugPrint(e.code);
