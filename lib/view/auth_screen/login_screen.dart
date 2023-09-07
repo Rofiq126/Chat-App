@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const Text(
                     'Selamat datang kembali, silahkan masuk!',
-                    style: Styles.title,
+                    style: Styles.titleSecond,
                   ),
                   const SizedBox(
                     height: 40,
