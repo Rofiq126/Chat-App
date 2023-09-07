@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class ConstantFirebaseService {
   static FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   static FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
   static Future register({required UserModel userModel}) async {
     await firebaseAuth
         .createUserWithEmailAndPassword(
