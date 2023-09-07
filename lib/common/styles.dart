@@ -6,8 +6,13 @@ class Styles {
   static const Color darkBlueColor = Color(0xFF150A80);
   static const Color whiteColor = Color(0xFFE3EAFD);
 
-  static const TextStyle title = TextStyle(
+  static const TextStyle titleSecond = TextStyle(
       fontFamily: 'Poppins', fontSize: 12, color: Styles.secondryColor);
+  static const TextStyle title = TextStyle(
+      fontFamily: 'Poppins',
+      fontSize: 16,
+      color: Styles.secondryColor,
+      fontWeight: FontWeight.w600);
   static const TextStyle button = TextStyle(
       fontFamily: 'Poppins',
       fontSize: 12,
@@ -20,6 +25,22 @@ class Styles {
       color: Styles.primaryColor);
   static const TextStyle reguler = TextStyle(
       fontFamily: 'Poppins', fontSize: 12, color: Styles.darkBlueColor);
+  static const TextStyle regulerWhite =
+      TextStyle(fontFamily: 'Poppins', fontSize: 12, color: Styles.whiteColor);
+  static const TextStyle regulerSecondry = TextStyle(
+      fontFamily: 'Poppins', fontSize: 12, color: Styles.secondryColor);
+  static const TextStyle regulerTitle = TextStyle(
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      color: Styles.darkBlueColor,
+      fontWeight: FontWeight.w500);
+  static const TextStyle regulerTitleSecond = TextStyle(
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      color: Styles.secondryColor,
+      fontWeight: FontWeight.w500);
+  static const TextStyle regulerSubtitle =
+      TextStyle(fontFamily: 'Poppins', fontSize: 12, color: Colors.black38);
   static const TextStyle regulerSecond = TextStyle(
       fontFamily: 'Poppins', fontSize: 12, color: Styles.secondryColor);
   static const TextStyle regulerActive =
