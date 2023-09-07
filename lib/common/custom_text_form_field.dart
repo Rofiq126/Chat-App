@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class CustomTextFormField extends StatefulWidget {
   final String hintTExt;
-  final Icon prefixIcon;
+  final Widget? prefixIcon;
   final TextEditingController controller;
   final FormFieldValidator validator;
   final bool obsecure;
@@ -15,7 +15,7 @@ class CustomTextFormField extends StatefulWidget {
       required this.controller,
       required this.validator,
       required this.obsecure,
-      required this.prefixIcon,
+      this.prefixIcon,
       this.suffix})
       : super(key: key);
 
@@ -32,8 +32,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       obscureText: widget.obsecure,
       validator: widget.validator,
       decoration: InputDecoration(
-        hintStyle: Styles.reguler,
-        contentPadding: EdgeInsets.zero,
+        hintStyle: Styles.regulerSecondry,
+        contentPadding: const EdgeInsets.all(10),
         hintText: widget.hintTExt,
         prefixIcon: widget.prefixIcon,
         filled: true,
