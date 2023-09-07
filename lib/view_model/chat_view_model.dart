@@ -5,9 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 
 class ChatViewModele extends ChangeNotifier {
-  var firebaseAuth = FirebaseAuth.instance;
-  var firebaseFirestore = FirebaseFirestore.instance;
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   String message = '';
+  String lastMessage = '';
+  String docId = '';
+  String chatTime = '';
 
   Future createAccount({required UserModel userModel}) async {
     try {
@@ -51,6 +54,33 @@ class ChatViewModele extends ChangeNotifier {
     try {
       await ConstantFirebaseService.logout();
       message = 'Signout succesfull';
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.code);
+    }
+    notifyListeners();
+  }
+
+  Future sendMessage(
+      {required String receiverId, required String message}) async {
+    try {
+      await ConstantFirebaseService.sendMessage(
+          receiverId: receiverId, message: message);
+      message = 'Message sended';
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.code);
+    }
+    notifyListeners();
+  }
+
+  Future updateLastMessage(
+      {required String lastMessage, required String docId}) async {
+    try {
+      if (docId.isNotEmpty) {
+        ConstantFirebaseService.updateLastMessage(
+            lastMessage: lastMessage, docId: docId);
+      }
+      debugPrint(lastMessage);
+      debugPrint(docId);
     } on FirebaseAuthException catch (e) {
       debugPrint(e.code);
     }
