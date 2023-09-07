@@ -19,6 +19,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
+  TextEditingController name = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool isVisiblePassword = true;
   bool isVisibleConfirmPassword = true;
@@ -54,10 +55,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     const Text(
                       'Mari kita buat akun untukmu!',
-                      style: Styles.title,
+                      style: Styles.titleSecond,
                     ),
                     const SizedBox(
                       height: 40,
+                    ),
+                    CustomTextFormField(
+                      hintTExt: 'Username',
+                      controller: name,
+                      obsecure: false,
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: Styles.secondryColor,
+                      ),
+                      validator: (value) {
+                        if (name.text.isEmpty) {
+                          return 'userName tidak boleh kosong!';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 16,
                     ),
                     CustomTextFormField(
                       hintTExt: 'Email',
@@ -149,6 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             await viewModel
                                 .createAccount(
                                     userModel: UserModel(
+                                        username: name.text,
                                         email: email.text,
                                         password: password.text))
                                 .then((value) {
