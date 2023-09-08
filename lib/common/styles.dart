@@ -39,6 +39,11 @@ class Styles {
       fontSize: 14,
       color: Styles.secondryColor,
       fontWeight: FontWeight.w500);
+  static const TextStyle regulerTitleWhite = TextStyle(
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      color: Styles.whiteColor,
+      fontWeight: FontWeight.w500);
   static const TextStyle regulerSubtitle =
       TextStyle(fontFamily: 'Poppins', fontSize: 12, color: Colors.black38);
   static const TextStyle regulerSecond = TextStyle(
