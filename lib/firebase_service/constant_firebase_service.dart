@@ -14,16 +14,10 @@ class ConstantFirebaseService {
         .then((value) {
       userModel.docId = value.user!.uid;
       userModel.createdAt = DateTime.now();
-      firebaseFirestore.collection('users').doc(value.user!.uid).set(
-        {
-          'userId': userModel.docId,
-          'lastMessage': userModel.lastMessage,
-          'username': userModel.username,
-          'createdAt': userModel.createdAt,
-          'email': userModel.email,
-          'password': userModel.password
-        },
-      );
+      firebaseFirestore
+          .collection('users')
+          .doc(value.user!.uid)
+          .set(userModel.userModelToJson());
     });
   }
 
@@ -73,9 +67,7 @@ class ConstantFirebaseService {
 
   static Future updateLastMessage(
       {required String lastMessage, required String docId}) async {
-    return await firebaseFirestore
-        .collection('users')
-        .doc(docId)
-        .update({'lastMessage': lastMessage});
+    return await firebaseFirestore.collection('users').doc(docId).update(
+        {'lastMessage': lastMessage, 'lastMessageTime': DateTime.now()});
   }
 }
