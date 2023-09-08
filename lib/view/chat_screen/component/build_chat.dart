@@ -17,9 +17,6 @@ Widget buildChat(
       var data = snapshot.data!.docs[index];
       viewModel.lastMessage = data['message'];
 
-      var time = data['timestamp'];
-      DateTime datetime = time.toDate();
-      viewModel.chatTime = DateFormat.Hm().format(datetime);
       bool isSender =
           data['senderId'] == viewModel.firebaseAuth.currentUser!.uid
               ? true
