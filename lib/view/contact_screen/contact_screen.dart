@@ -63,8 +63,9 @@ class _ContactScreenState extends State<ContactScreen> {
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     var data = snapshot.data!.docs[index];
-                    viewModel.contactSum = snapshot.data!.docs.length;
+                    viewModel.contactSum = snapshot.data!.docs.length - 1;
                     var currentUser = viewModel.firebaseAuth.currentUser;
+
                     if (currentUser != null &&
                         currentUser.email != data['email']) {
                       return ListTile(
@@ -92,6 +93,16 @@ class _ContactScreenState extends State<ContactScreen> {
                           style: Styles.regulerTitleSecond,
                         ),
                       );
+                    } else if (currentUser != null &&
+                        currentUser.email != data['email']) {
+                      if (data['email'] == null) {
+                        return Center(
+                          child: Image.asset(
+                            'assets/icons/logo_no_data.jpg.png',
+                            width: size.width * 0.6,
+                          ),
+                        );
+                      }
                     }
                     return Container();
                   });
