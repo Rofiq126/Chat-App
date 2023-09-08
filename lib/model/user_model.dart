@@ -2,6 +2,7 @@ class UserModel {
   String? docId;
   String? username;
   String? lastMessage;
+  DateTime? lastMessageTime;
   String email;
   DateTime? createdAt;
   String password;
@@ -10,6 +11,7 @@ class UserModel {
       {required this.email,
       required this.password,
       this.docId,
+      this.lastMessageTime,
       this.username,
       this.createdAt,
       this.lastMessage});
@@ -17,6 +19,7 @@ class UserModel {
   UserModel.fromJson(Map<String, dynamic> json)
       : email = json['email'],
         docId = json['docId'],
+        lastMessageTime = json['lastMessageTime'],
         createdAt = json['createdAt'],
         username = json['username'],
         lastMessage = json['lastMessage'],
@@ -26,6 +29,7 @@ class UserModel {
     return {
       'email': email,
       'docId': docId,
+      'lastMessageTime': lastMessageTime,
       'createdAt': createdAt,
       'password': password,
       'username': username,
