@@ -11,6 +11,8 @@ class ChatViewModele extends ChangeNotifier {
   String lastMessage = '';
   String docId = '';
   String chatTime = '';
+  String username = '';
+  String email = '';
   int contactSum = 0;
 
   Future createAccount({required UserModel userModel}) async {
