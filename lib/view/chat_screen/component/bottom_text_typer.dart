@@ -1,5 +1,6 @@
 import 'package:chat_app/common/custom_text_form_field.dart';
 import 'package:chat_app/common/styles.dart';
+import 'package:chat_app/view/chat_screen/component/text_form_field_chat.dart';
 import 'package:chat_app/view_model/chat_view_model.dart';
 import 'package:flutter/material.dart';
 
@@ -12,13 +13,12 @@ Widget bottomTextTyper(
   return Row(
     children: [
       Flexible(
-        child: CustomTextFormField(
+        child: ChatFormFieldChat(
           hintTExt: 'Tulis pesanmu disini',
           controller: message,
           validator: (value) {
             return null;
           },
-          obsecure: false,
         ),
       ),
       IconButton(

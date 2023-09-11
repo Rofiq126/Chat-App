@@ -23,8 +23,8 @@ Widget buildChat(
       return BubbleSpecialThree(
         text: data['message'],
         isSender: isSender,
+        tail: false,
         color: isSender ? Styles.secondryColor : Styles.whiteColor,
-        tail: true,
         textStyle: isSender ? Styles.regulerWhite : Styles.regulerSecondry,
       );
     },
