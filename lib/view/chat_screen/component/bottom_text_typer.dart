@@ -1,4 +1,3 @@
-import 'package:chat_app/common/custom_text_form_field.dart';
 import 'package:chat_app/common/styles.dart';
 import 'package:chat_app/view/chat_screen/component/text_form_field_chat.dart';
 import 'package:chat_app/view_model/chat_view_model.dart';
