@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:chat_app/firebase_service/constant_firebase_service.dart';
 import 'package:chat_app/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
+import 'package:file_picker/file_picker.dart';
 
 class ChatViewModele extends ChangeNotifier {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -14,6 +17,8 @@ class ChatViewModele extends ChangeNotifier {
   String username = '';
   String email = '';
   int contactSum = 0;
+  PlatformFile? pickedFile;
+  String? file;
 
   Future createAccount({required UserModel userModel}) async {
     try {
@@ -84,6 +89,29 @@ class ChatViewModele extends ChangeNotifier {
       }
       debugPrint(lastMessage);
       debugPrint(docId);
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.code);
+    }
+    notifyListeners();
+  }
+
+  Future pickFiles() async {
+    var result = await FilePicker.platform.pickFiles();
+    if (result == null) return;
+    pickedFile = result.files.first;
+    notifyListeners();
+  }
+
+  Future uploadImageProfile() async {
+    try {
+      if (pickedFile != null) {
+        final path = 'files/ ${pickedFile!.name}';
+        final file = File(pickedFile!.path!);
+        ConstantFirebaseService.uploadImageProfile(path: path, file: file);
+        message = 'Upload succesfull';
+      } else {
+        message = 'Upload failed';
+      }
     } on FirebaseAuthException catch (e) {
       debugPrint(e.code);
     }

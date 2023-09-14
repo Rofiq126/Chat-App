@@ -2,6 +2,7 @@ import 'package:chat_app/model/message_model.dart';
 import 'package:chat_app/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class ConstantFirebaseService {
   static FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -69,5 +70,10 @@ class ConstantFirebaseService {
       {required String lastMessage, required String docId}) async {
     return await firebaseFirestore.collection('users').doc(docId).update(
         {'lastMessage': lastMessage, 'lastMessageTime': DateTime.now()});
+  }
+
+  static Future uploadImageProfile(
+      {required var path, required var file}) async {
+    FirebaseStorage.instance.ref().child(path).putFile(file);
   }
 }

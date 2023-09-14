@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:chat_app/common/styles.dart';
 import 'package:chat_app/view_model/chat_view_model.dart';
 import 'package:flutter/material.dart';
@@ -32,18 +34,58 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: const Icon(
-                Icons.person,
-                color: Styles.secondryColor,
-                size: 90,
-              ),
+            Stack(
+              children: [
+                Container(
+                  width: 125,
+                  height: 125,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: ClipOval(
+                    child: viewModel.pickedFile != null
+                        ? Image.file(
+                            File(viewModel.pickedFile!.path!),
+                            fit: BoxFit.cover,
+                          )
+                        : Image.asset(
+                            'assets/icons/empty_user_icon.png',
+                            fit: BoxFit.cover,
+                          ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0.0,
+                  right: 0.0,
+                  child: InkWell(
+                    onTap: () async {
+                      const Center(
+                        child: CircularProgressIndicator(
+                            color: Styles.secondryColor),
+                      );
+                      await viewModel
+                          .pickFiles()
+                          .then((value) => viewModel.uploadImageProfile())
+                          .then((value) => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const ProfileScreen())));
+                    },
+                    child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            color: Styles.secondryColor,
+                            borderRadius: BorderRadius.circular(100)),
+                        child: const Icon(
+                          Icons.add_a_photo,
+                          color: Styles.whiteColor,
+                          size: 20,
+                        )),
+                  ),
+                )
+              ],
             ),
             const SizedBox(
               height: 20,
